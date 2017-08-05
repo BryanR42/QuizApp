@@ -12,7 +12,6 @@ import AudioToolbox
 
 class ViewController: UIViewController {
     
-    let commitMe = "Initial Commit"
     
     let questionsPerRound = 4
     var questionsAsked = 0
@@ -20,14 +19,15 @@ class ViewController: UIViewController {
     var indexOfSelectedQuestion: Int = 0
     
     var gameSound: SystemSoundID = 0
-    
+/* 
+ This section can go
     let trivia: [[String : String]] = [
         ["Question": "Only female koalas can whistle", "Answer": "False"],
         ["Question": "Blue whales are technically whales", "Answer": "True"],
         ["Question": "Camels are cannibalistic", "Answer": "False"],
         ["Question": "All ducks are birds", "Answer": "True"]
     ]
-    
+ */
     @IBOutlet weak var questionField: UILabel!
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var falseButton: UIButton!
