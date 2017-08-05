@@ -10,6 +10,8 @@ import UIKit
 import GameKit
 import AudioToolbox
 
+
+
 class ViewController: UIViewController {
     
     
@@ -19,16 +21,8 @@ class ViewController: UIViewController {
     var indexOfSelectedQuestion: Int = 0
     
     var gameSound: SystemSoundID = 0
-
-    let trivia: [[String : String]] = [
-        ["Question": "Only female koalas can whistle", "Answer": "False"],
-        ["Question": "Blue whales are technically whales", "Answer": "True"],
-        ["Question": "Camels are cannibalistic", "Answer": "False"],
-        ["Question": "All ducks are birds", "Answer": "True"]
-    ]
-    
     let gameQuestions = QuestionProvider()
-    var currentQuestion: QuizQuestion
+    var currentQuestion = QuizQuestion(question: "Question", choice1: "1", choice2: "2", choice3: "3", choice4: "4", answer: 0)
     
     
     @IBOutlet weak var questionField: UILabel!
@@ -37,6 +31,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var answer3Button: UIButton!
     @IBOutlet weak var answer4Button: UIButton!
     @IBOutlet weak var playAgainButton: UIButton!
+    @IBOutlet weak var responseField: UILabel!
     
 
     override func viewDidLoad() {
@@ -45,16 +40,22 @@ class ViewController: UIViewController {
         // Start game
         playGameStartSound()
         displayQuestion()
+        
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func displayQuestion() {
-        let currentQuestion = gameQuestions.randomNewQuestion()
+        currentQuestion = gameQuestions.randomNewQuestion()
+        responseField.text = ""
         questionField.text = currentQuestion.question
+        answer1Button.setTitle(currentQuestion.choices[0], for: .normal)
+        answer2Button.setTitle(currentQuestion.choices[1], for: .normal)
+        answer3Button.setTitle(currentQuestion.choices[2], for: .normal)
+        answer4Button.setTitle(currentQuestion.choices[3], for: .normal)
+
         playAgainButton.isHidden = true
     }
     
@@ -88,7 +89,7 @@ class ViewController: UIViewController {
         case answer4Button:
                 currentAnswer = 4
         default:
-            currentAnswer = nil
+            currentAnswer = 0
         }
         
         if currentAnswer == correctAnswer {

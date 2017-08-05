@@ -132,10 +132,9 @@
                         <outlet property="answer2Button" destination="AS4-HX-g9f" id="RXh-YX-bZa"/>
                         <outlet property="answer3Button" destination="cw7-Hf-NOV" id="BqY-a0-Xk5"/>
                         <outlet property="answer4Button" destination="snK-Hs-LI3" id="9st-zH-7bq"/>
-                        <outlet property="falseButton" destination="AS4-HX-g9f" id="Xfj-Ws-1ey"/>
                         <outlet property="playAgainButton" destination="K17-uy-MvB" id="0Bx-Cm-ye0"/>
                         <outlet property="questionField" destination="I3V-ih-1Ky" id="7UI-o2-ATi"/>
-                        <outlet property="trueButton" destination="J1V-MS-ECi" id="iZW-hy-ROl"/>
+                        <outlet property="responseField" destination="J8e-ym-WQC" id="j2V-AR-Bui"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
