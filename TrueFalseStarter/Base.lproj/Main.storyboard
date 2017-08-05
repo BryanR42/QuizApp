@@ -90,13 +90,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Response" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8e-ym-WQC">
-                                <rect key="frame" x="40" y="256" width="334" height="54"/>
+                                <rect key="frame" x="40" y="255" width="334" height="55"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3V-ih-1Ky">
-                                <rect key="frame" x="40" y="60" width="334" height="221"/>
+                                <rect key="frame" x="40" y="60" width="334" height="220"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -128,6 +128,10 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="answer1Button" destination="J1V-MS-ECi" id="rQT-3j-btv"/>
+                        <outlet property="answer2Button" destination="AS4-HX-g9f" id="RXh-YX-bZa"/>
+                        <outlet property="answer3Button" destination="cw7-Hf-NOV" id="BqY-a0-Xk5"/>
+                        <outlet property="answer4Button" destination="snK-Hs-LI3" id="9st-zH-7bq"/>
                         <outlet property="falseButton" destination="AS4-HX-g9f" id="Xfj-Ws-1ey"/>
                         <outlet property="playAgainButton" destination="K17-uy-MvB" id="0Bx-Cm-ye0"/>
                         <outlet property="questionField" destination="I3V-ih-1Ky" id="7UI-o2-ATi"/>
