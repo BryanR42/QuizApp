@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     var gameSound: SystemSoundID = 0
     let gameQuestions = QuestionProvider()
-    var currentQuestion = QuizQuestion(question: "Question", choice1: "1", choice2: "2", choice3: "3", choice4: "4", answer: 0)
+    var currentQuestion = QuizQuestion(question: "Question", choices: ["1", "2", "3", "4"], answer: 0)
     
     
     @IBOutlet weak var questionField: UILabel!
@@ -49,8 +49,8 @@ class ViewController: UIViewController {
     func setupButtons() {
         let choiceButtonArray = [answer1Button, answer2Button, answer3Button, answer4Button]
         let answerCount = currentQuestion.choices.count
-        for i in 0...choiceButtonArray.count {
-            if i > answerCount {
+        for i in 0...3 {
+            if i < answerCount {
                 choiceButtonArray[i]?.isHidden = false
                 choiceButtonArray[i]?.setTitle(currentQuestion.choices[i], for: .normal)
             } else {
@@ -66,10 +66,7 @@ class ViewController: UIViewController {
         currentQuestion = gameQuestions.randomNewQuestion()
         responseField.text = ""
         questionField.text = currentQuestion.question
-        answer1Button.setTitle(currentQuestion.choices[0], for: .normal)
-        answer2Button.setTitle(currentQuestion.choices[1], for: .normal)
-        answer3Button.setTitle(currentQuestion.choices[2], for: .normal)
-        answer4Button.setTitle(currentQuestion.choices[3], for: .normal)
+        setupButtons()
 
         playAgainButton.isHidden = true
     }

@@ -17,9 +17,9 @@ class QuizQuestion {
     var asked: Bool = false
     
     // initializer for 4 choice questions
-    init(question: String, choice1: String, choice2: String, choice3: String, choice4: String?, answer: Int) {
+    init(question: String, choices: [String], answer: Int) {
         self.question = question
-        self.choices = [choice1, choice2, choice3, choice4]
+        self.choices = choices
         self.answer = answer
     }
 }
@@ -27,17 +27,17 @@ class QuizQuestion {
 struct QuestionProvider {
     // creating an array of questions
     
-    var questionBank = [QuizQuestion(question: "This was the only US President to serve more than two consecutive terms.", choice1: "George Washington", choice2: "Franklin D. Roosevelt", choice3: "Woodrow Wilson", choice4: "Andrew Jackson", answer: 2),
-        QuizQuestion(question: "Which of the following countries has the most residents?", choice1: "Nigeria", choice2: "Russia", choice3: "Iran", choice4: "Vietnam", answer: 1),
-        QuizQuestion(question: "In what year was the United Nations founded?", choice1: "1918", choice2: "1919", choice3: "1945", choice4: "1954", answer: 3),
-        QuizQuestion(question: "The Titanic departed from the United Kingdom, where was it supposed to arrive?", choice1: "Paris", choice2: "Washington D.C.", choice3: "New York City", choice4: "Boston", answer: 3),
-        QuizQuestion(question: "What nation produces the most oil?", choice1: "Iran", choice2: "Iraq", choice3: "Brazil", choice4: "Canada", answer: 4),
-        QuizQuestion(question: "Which country has most recently won consecutive World Cups in Soccer?", choice1: "Italy", choice2: "Brazil", choice3: "Argentina", choice4: "Spain" , answer: 2),
-        QuizQuestion(question: "Which of the following rivers is the longest?", choice1: "Yangtze", choice2: "Mississippi", choice3: "Congo", choice4: "Mekong", answer: 2),
-        QuizQuestion(question: "Which of these cities is the oldest?", choice1: "Mexico City", choice2: "Cape Town", choice3: "San Juan", choice4: "Sydney", answer: 1),
-        QuizQuestion(question: "Which country was the first to allow women to vote in national elections?", choice1: "Poland", choice2: "United States", choice3: "Sweden", choice4: "Senegal", answer: 1),
-        QuizQuestion(question: "Which of these countries won the most medals in the 2012 Summer Games?", choice1: "France", choice2: "Germany", choice3: "Japan", choice4: "Great Britain", answer: 4),
-        QuizQuestion(question: "3 choice test", choice1: "1", choice2: "2", choice3: "3", choice4: nil, answer: 2)
+    var questionBank = [QuizQuestion(question: "This was the only US President to serve more than two consecutive terms.", choices: ["George Washington", "Franklin D. Roosevelt", "Woodrow Wilson", "Andrew Jackson"], answer: 2),
+        QuizQuestion(question: "Which of the following countries has the most residents?", choices: ["Nigeria", "Russia", "Iran", "Vietnam"], answer: 1),
+        QuizQuestion(question: "In what year was the United Nations founded?", choices: ["1918", "1919", "1945", "1954"], answer: 3),
+        QuizQuestion(question: "The Titanic departed from the United Kingdom, where was it supposed to arrive?", choices: ["Paris", "Washington D.C.", "New York City", "Boston"], answer: 3),
+        QuizQuestion(question: "What nation produces the most oil?", choices: ["Iran", "Iraq", "Brazil", "Canada"], answer: 4),
+        QuizQuestion(question: "Which country has most recently won consecutive World Cups in Soccer?", choices: ["Italy", "Brazil", "Argentina", "Spain"], answer: 2),
+        QuizQuestion(question: "Which of the following rivers is the longest?", choices: ["Yangtze", "Mississippi", "Congo", "Mekong"], answer: 2),
+        QuizQuestion(question: "Which of these cities is the oldest?", choices: ["Mexico City", "Cape Town", "San Juan", "Sydney"], answer: 1),
+        QuizQuestion(question: "Which country was the first to allow women to vote in national elections?", choices: ["Poland", "United States", "Sweden", "Senegal"], answer: 1),
+        QuizQuestion(question: "Which of these countries won the most medals in the 2012 Summer Games?", choices: ["France", "Germany", "Japan", "Great Britain"], answer: 4),
+        QuizQuestion(question: "Which platform is better?", choices: ["iOS", "Android"], answer: 1)
         ]
     
     func randomNewQuestion() -> QuizQuestion {
@@ -49,8 +49,8 @@ struct QuestionProvider {
         }
         // indicate that this question will be asked now
         questionBank[randomIndex].asked = true
-        return questionBank[questionBank.count - 1]
-//        return questionBank[randomIndex]
+        
+        return questionBank[randomIndex]
     }
     func resetBank() {
         // mark all questions as unasked to start a new game
