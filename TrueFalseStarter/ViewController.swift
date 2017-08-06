@@ -22,7 +22,8 @@ class ViewController: UIViewController {
     
     var gameSound: SystemSoundID = 0
     let gameQuestions = QuestionProvider()
-    var currentQuestion = QuizQuestion(question: "Question", choices: ["1", "2", "3", "4"], answer: 0)
+    let colorProvider = ColorProvider()
+    var currentQuestion = QuizQuestion(question: "Question", choices: ["1", "2"], answer: 0)
     
     
     @IBOutlet weak var questionField: UILabel!
@@ -52,6 +53,7 @@ class ViewController: UIViewController {
         for i in 0...3 {
             if i < answerCount {
                 choiceButtonArray[i]?.isHidden = false
+                choiceButtonArray[i]?.backgroundColor = colorProvider.getUIColor(for: "Teal")
                 choiceButtonArray[i]?.setTitle(currentQuestion.choices[i], for: .normal)
             } else {
                 choiceButtonArray[i]?.isHidden = true
@@ -59,12 +61,10 @@ class ViewController: UIViewController {
         }
     }
         
-        
-    
     
     func displayQuestion() {
         currentQuestion = gameQuestions.randomNewQuestion()
-        responseField.text = ""
+        responseField.isHidden = true
         questionField.text = currentQuestion.question
         setupButtons()
 
@@ -86,10 +86,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func checkAnswer(_ sender: UIButton) {
+        if responseField.isHidden == true {
         // Increment the questions asked counter
         questionsAsked += 1
         
         let correctAnswer = currentQuestion.answer
+        
         var currentAnswer: Int?
         switch sender {
         case answer1Button:
@@ -106,16 +108,28 @@ class ViewController: UIViewController {
         
         if currentAnswer == correctAnswer {
             correctQuestions += 1
+            sender.backgroundColor = colorProvider.getUIColor(for: "Green")
+            responseField.textColor = colorProvider.getUIColor(for: "Green")
             responseField.text = "Correct!"
         } else {
+            switch correctAnswer {
+            case 1: answer1Button.backgroundColor = colorProvider.getUIColor(for: "Green")
+            case 2: answer2Button.backgroundColor = colorProvider.getUIColor(for: "Green")
+            case 3: answer3Button.backgroundColor = colorProvider.getUIColor(for: "Green")
+            case 4: answer4Button.backgroundColor = colorProvider.getUIColor(for: "Green")
+            default: print("Error")
+            }
+            sender.backgroundColor = colorProvider.getUIColor(for: "Orange")
+            responseField.textColor = colorProvider.getUIColor(for: "Orange")
             responseField.text = "Sorry, wrong answer!"
         }
-        
+        responseField.isHidden = false
         loadNextRoundWithDelay(seconds: 2)
+        }
     }
     
     func nextRound() {
-        if questionsAsked == questionsPerRound {
+        if questionsAsked >= questionsPerRound {
             // Game is over
             displayScore()
         } else {
@@ -126,10 +140,6 @@ class ViewController: UIViewController {
     
     @IBAction func playAgain() {
         // Show the answer buttons
-        answer1Button.isHidden = false
-        answer2Button.isHidden = false
-        answer3Button.isHidden = false
-        answer4Button.isHidden = false
         gameQuestions.resetBank()
         questionsAsked = 0
         correctQuestions = 0
