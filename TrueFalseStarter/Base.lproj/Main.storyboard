@@ -115,13 +115,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Response" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8e-ym-WQC">
-                                <rect key="frame" x="40" y="105" width="334" height="28"/>
+                                <rect key="frame" x="40" y="120" width="334" height="28"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="23"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3V-ih-1Ky">
-                                <rect key="frame" x="40" y="60" width="334" height="20"/>
+                                <rect key="frame" x="40" y="75" width="334" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -131,6 +131,7 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="J8e-ym-WQC" secondAttribute="trailing" constant="20" id="2TD-DO-U6T"/>
                             <constraint firstItem="57K-7Z-fKy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="5p7-dn-RkL"/>
+                            <constraint firstItem="I3V-ih-1Ky" firstAttribute="top" secondItem="57K-7Z-fKy" secondAttribute="bottom" constant="10" id="G39-Hf-bps"/>
                             <constraint firstItem="57K-7Z-fKy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="N5w-UU-0EY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="I3V-ih-1Ky" secondAttribute="trailing" constant="20" id="ST8-Cs-TiA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Gmn-qy-UIg" secondAttribute="trailing" constant="20" id="ZNX-R4-gdP"/>
@@ -141,7 +142,6 @@
                             <constraint firstItem="J8e-ym-WQC" firstAttribute="top" secondItem="I3V-ih-1Ky" secondAttribute="bottom" constant="25" id="hCL-OG-L5B"/>
                             <constraint firstItem="cnS-rs-Odx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="hxh-Fi-G3c"/>
                             <constraint firstItem="J8e-ym-WQC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="li3-5N-oeG"/>
-                            <constraint firstItem="I3V-ih-1Ky" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="pGd-Vs-dI5"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -153,10 +153,13 @@
                         <outlet property="playAgainButton" destination="K17-uy-MvB" id="0Bx-Cm-ye0"/>
                         <outlet property="questionField" destination="I3V-ih-1Ky" id="7UI-o2-ATi"/>
                         <outlet property="responseField" destination="J8e-ym-WQC" id="j2V-AR-Bui"/>
+                        <outlet property="scoreLabel" destination="57K-7Z-fKy" id="n7y-rD-G5B"/>
+                        <outlet property="timerLabel" destination="Gmn-qy-UIg" id="GBX-r8-B9k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="39.945652173913047"/>
         </scene>
     </scenes>
 </document>
