@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var playAgainButton: UIButton!
     @IBOutlet weak var responseField: UILabel!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadGameStartSound()
@@ -46,6 +46,21 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func setupButtons() {
+        let choiceButtonArray = [answer1Button, answer2Button, answer3Button, answer4Button]
+        let answerCount = currentQuestion.choices.count
+        for i in 0...choiceButtonArray.count {
+            if i > answerCount {
+                choiceButtonArray[i]?.isHidden = false
+                choiceButtonArray[i]?.setTitle(currentQuestion.choices[i], for: .normal)
+            } else {
+                choiceButtonArray[i]?.isHidden = true
+            }
+        }
+    }
+        
+        
+    
     
     func displayQuestion() {
         currentQuestion = gameQuestions.randomNewQuestion()

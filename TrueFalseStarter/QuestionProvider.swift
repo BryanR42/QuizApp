@@ -12,12 +12,12 @@ import GameKit
 class QuizQuestion {
     
     let question: String
-    let choices: [String]
+    let choices: [String?]
     let answer: Int
     var asked: Bool = false
     
     // initializer for 4 choice questions
-    init(question: String, choice1: String, choice2: String, choice3: String, choice4: String, answer: Int) {
+    init(question: String, choice1: String, choice2: String, choice3: String, choice4: String?, answer: Int) {
         self.question = question
         self.choices = [choice1, choice2, choice3, choice4]
         self.answer = answer
@@ -36,7 +36,8 @@ struct QuestionProvider {
         QuizQuestion(question: "Which of the following rivers is the longest?", choice1: "Yangtze", choice2: "Mississippi", choice3: "Congo", choice4: "Mekong", answer: 2),
         QuizQuestion(question: "Which of these cities is the oldest?", choice1: "Mexico City", choice2: "Cape Town", choice3: "San Juan", choice4: "Sydney", answer: 1),
         QuizQuestion(question: "Which country was the first to allow women to vote in national elections?", choice1: "Poland", choice2: "United States", choice3: "Sweden", choice4: "Senegal", answer: 1),
-        QuizQuestion(question: "Which of these countries won the most medals in the 2012 Summer Games?", choice1: "France", choice2: "Germany", choice3: "Japan", choice4: "Great Britain", answer: 4)
+        QuizQuestion(question: "Which of these countries won the most medals in the 2012 Summer Games?", choice1: "France", choice2: "Germany", choice3: "Japan", choice4: "Great Britain", answer: 4),
+        QuizQuestion(question: "3 choice test", choice1: "1", choice2: "2", choice3: "3", choice4: nil, answer: 2)
         ]
     
     func randomNewQuestion() -> QuizQuestion {
@@ -48,8 +49,8 @@ struct QuestionProvider {
         }
         // indicate that this question will be asked now
         questionBank[randomIndex].asked = true
-        
-        return questionBank[randomIndex]
+        return questionBank[questionBank.count - 1]
+//        return questionBank[randomIndex]
     }
     func resetBank() {
         // mark all questions as unasked to start a new game
