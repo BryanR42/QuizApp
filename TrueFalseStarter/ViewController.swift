@@ -19,12 +19,13 @@ class ViewController: UIViewController {
     var questionsAsked = 0
     var correctQuestions = 0
     var indexOfSelectedQuestion: Int = 0
-    var gameSound: SystemSoundID = 0
     let gameQuestions = QuestionProvider()
     let colorProvider = ColorProvider()
+    let soundProvider = SoundProvider()
     var timer = Timer()
     var countdownClock: Int = 0
-
+    var gameSounds: [SystemSoundID] = []
+    
 // is there a better way to initialize this var in the global scope? got an error if I only type initialize it.
     var currentQuestion = QuizQuestion(question: "Question", choices: ["1", "2"], answer: 0)
     
@@ -42,9 +43,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadGameStartSound()
+        gameSounds = soundProvider.loadSounds()
         // Start game
-        playGameStartSound()
+        playSound(named: "Start")
         displayQuestion()
         
     }
@@ -93,7 +94,7 @@ class ViewController: UIViewController {
         
         // Display play again button
         playAgainButton.isHidden = false
-        
+        playSound(named: "Game Over")
         questionField.text = "Way to go!\nYou got \(correctQuestions) out of \(questionsPerRound) correct!"
         
     }
@@ -120,12 +121,13 @@ class ViewController: UIViewController {
         default:
             currentAnswer = 0
         }
-        // check if they are right, and change colors and response appropriately
+        // check if they are right, and change colors, sounds and response appropriately
         if currentAnswer == correctAnswer {
             correctQuestions += 1
             sender.backgroundColor = colorProvider.getUIColor(for: "Green")
             responseField.textColor = colorProvider.getUIColor(for: "Green")
             responseField.text = "Correct!"
+            playSound(named: "Correct")
         } else {
             // mark the correct answer by turning the right button green, and the chosen button orange... Red is just too harsh!
             switch correctAnswer {
@@ -133,15 +135,17 @@ class ViewController: UIViewController {
             case 2: answer2Button.backgroundColor = colorProvider.getUIColor(for: "Green")
             case 3: answer3Button.backgroundColor = colorProvider.getUIColor(for: "Green")
             case 4: answer4Button.backgroundColor = colorProvider.getUIColor(for: "Green")
-            default: print("Error") // this should never happen but I don't want to let another button be the default answer
+            default: print("No correct Answer") // Debug check
             }
             responseField.textColor = colorProvider.getUIColor(for: "Orange")
+            playSound(named: "Wrong")
             if currentAnswer != 0 {
             sender.backgroundColor = colorProvider.getUIColor(for: "Orange")
             responseField.text = "Sorry, wrong answer!"
             } else {
                 responseField.text = "Time is up!"
             }
+            
         }
             // make the response visible and update the onscreen score
         responseField.isHidden = false
@@ -175,7 +179,7 @@ class ViewController: UIViewController {
     
     func updateTimer() {
         countdownClock -= 1
-        timerLabel.text = String(countdownClock)
+        timerLabel.text = String(countdownClock) + " Sec"
         if countdownClock == 0 {
             checkAnswer(playAgainButton)
         }
@@ -192,15 +196,16 @@ class ViewController: UIViewController {
             self.nextRound()
         }
     }
-    
-    func loadGameStartSound() {
-        let pathToSoundFile = Bundle.main.path(forResource: "GameSound", ofType: "wav")
-        let soundURL = URL(fileURLWithPath: pathToSoundFile!)
-        AudioServicesCreateSystemSoundID(soundURL as CFURL, &gameSound)
-    }
-    
-    func playGameStartSound() {
-        AudioServicesPlaySystemSound(gameSound)
+    func playSound(named sound: String) {
+        switch sound {
+        case "Start": AudioServicesPlaySystemSound(gameSounds[0])
+        case "Correct": AudioServicesPlaySystemSound(gameSounds[1])
+        case "Wrong": AudioServicesPlaySystemSound(gameSounds[2])
+        case "Winner": AudioServicesPlaySystemSound(gameSounds[3])
+        case "Loser": AudioServicesPlaySystemSound(gameSounds[4])
+        default: print("No sound") // Debug helper
+            
+        }
     }
 }
 
