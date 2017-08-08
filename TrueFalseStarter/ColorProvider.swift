@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+// simple struct to change some colors around
 struct ColorProvider {
     let colors = [
         "Teal": UIColor(red: 12/255.0, green: 121/255.0, blue: 150/255.0, alpha: 1.0), // teal

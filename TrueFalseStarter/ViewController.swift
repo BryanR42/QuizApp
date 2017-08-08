@@ -58,13 +58,13 @@ class ViewController: UIViewController {
         let choiceButtonArray = [answer1Button, answer2Button, answer3Button, answer4Button]
         
         let answerCount = currentQuestion.choices.count
-        for i in 0...3 {
+        for i in 0..<choiceButtonArray.count {
             if i < answerCount {
                 choiceButtonArray[i]?.isHidden = false
                 choiceButtonArray[i]?.backgroundColor = colorProvider.getUIColor(for: "Teal")
                 choiceButtonArray[i]?.setTitle(currentQuestion.choices[i], for: .normal)
             } else {
-                // hide the button if there is no choice for it to display
+                // hide the button if there is no choice for it to display. The UIStackView will adjust to compensate for missing buttons
                 choiceButtonArray[i]?.isHidden = true
             }
         }
@@ -72,19 +72,22 @@ class ViewController: UIViewController {
         
     
     func displayQuestion() {
+    // get a new question
         currentQuestion = gameQuestions.randomNewQuestion()
         responseField.isHidden = true
         questionField.text = currentQuestion.question
         setupButtons()
+    // start the clock
         countdownClock = 15
         timerLabel.isHidden = false
-        timerLabel.text = String(countdownClock)
+        timerLabel.text = String(countdownClock) + " Sec"
         timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
         playAgainButton.isHidden = true
     }
     
     func displayScore() {
-        // Hide the answer buttons
+        // Hide the extraneous buttons and labels
+        responseField.isHidden = true
         scoreLabel.isHidden = true
         timerLabel.isHidden = true
         answer1Button.isHidden = true
@@ -92,22 +95,32 @@ class ViewController: UIViewController {
         answer3Button.isHidden = true
         answer4Button.isHidden = true
         
-        // Display play again button
+    // Display play again button
         playAgainButton.isHidden = false
-        playSound(named: "Game Over")
-        questionField.text = "Way to go!\nYou got \(correctQuestions) out of \(questionsPerRound) correct!"
+    // play a game over sound and show the results based on percentage of correct answers
+        var resultText: String
+        if correctQuestions > questionsAsked / 2 {
+            playSound(named: "Winner")
+            resultText = "Way to go!"
+        } else {
+        playSound(named: "Loser")
+            resultText = "Bummer!"
+        }
+        questionField.text = "\(resultText)\nYou got \(correctQuestions) out of \(questionsPerRound) correct!"
         
     }
     
     @IBAction func checkAnswer(_ sender: UIButton) {
         
-        // ignore taps in between questions while the response is displayed
+    // ignore taps in between questions while the response is displayed
         if responseField.isHidden == true {
-        // Increment the questions asked counter
+    // Increment the questions asked counter
         questionsAsked += 1
+    // stop the countdown timer when an answer is chosen
         timer.invalidate()
+        
         let correctAnswer = currentQuestion.answer
-        // assign an Int based on the button tapped so we can compare it to the correct answer
+    // assign an Int based on the button tapped so we can compare it to the correct answer
         var currentAnswer: Int?
         switch sender {
         case answer1Button:
@@ -121,7 +134,7 @@ class ViewController: UIViewController {
         default:
             currentAnswer = 0
         }
-        // check if they are right, and change colors, sounds and response appropriately
+    // check if they are right, and change colors, sounds and response appropriately
         if currentAnswer == correctAnswer {
             correctQuestions += 1
             sender.backgroundColor = colorProvider.getUIColor(for: "Green")
@@ -129,7 +142,7 @@ class ViewController: UIViewController {
             responseField.text = "Correct!"
             playSound(named: "Correct")
         } else {
-            // mark the correct answer by turning the right button green, and the chosen button orange... Red is just too harsh!
+            // mark the correct answer by turning the right button green, and the chosen button orange, then hit them with the Buzzer!!!
             switch correctAnswer {
             case 1: answer1Button.backgroundColor = colorProvider.getUIColor(for: "Green")
             case 2: answer2Button.backgroundColor = colorProvider.getUIColor(for: "Green")
@@ -196,6 +209,9 @@ class ViewController: UIViewController {
             self.nextRound()
         }
     }
+    
+    // I tried to put this into the SoundProvider struct but I couldn't get it to work. If I declare the instance as var it still tells me the array is immutable. I think it's a scope issue and I hope I'll figure it out later.
+    
     func playSound(named sound: String) {
         switch sound {
         case "Start": AudioServicesPlaySystemSound(gameSounds[0])

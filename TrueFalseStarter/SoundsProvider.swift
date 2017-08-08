@@ -13,7 +13,7 @@ struct SoundProvider {
     
     let soundsArray = [("GameSound", "wav"), ("chime_bell_ding", "wav"), ("Wrong", "mp3"), ("Cheer", "wav"), ("Aww", "wav")]
     
-    // fill the array with created sounds
+    // fill an array with created sounds
     func loadSounds() -> [SystemSoundID] {
         var gameSounds: [SystemSoundID] = []
         var soundHolder: SystemSoundID = 0

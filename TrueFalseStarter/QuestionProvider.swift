@@ -7,7 +7,7 @@
 //
 
 import GameKit
-// I could have used struct I think, but wanted practice with classes. I can't decide if I need a sub class for 3 or 4 choices, by using an array for the choices, I think I'm OK with only the single class.
+// I could have used struct I think, but wanted practice with classes. 
 
 class QuizQuestion {
     
@@ -31,6 +31,7 @@ struct QuestionProvider {
         QuizQuestion(question: "Which of the following countries has the most residents?", choices: ["Nigeria", "Russia", "Iran", "Vietnam"], answer: 1),
         QuizQuestion(question: "In what year was the United Nations founded?", choices: ["1918", "1919", "1945", "1954"], answer: 3),
         QuizQuestion(question: "The Titanic departed from the United Kingdom, where was it supposed to arrive?", choices: ["Paris", "Washington D.C.", "New York City", "Boston"], answer: 3),
+        QuizQuestion(question: "Who is the best Treehouse Instructor?", choices: ["Pasan", "Adrian", "This is a Trick Question!\nThey all are!"], answer: 3),
         QuizQuestion(question: "What nation produces the most oil?", choices: ["Iran", "Iraq", "Brazil", "Canada"], answer: 4),
         QuizQuestion(question: "Which country has most recently won consecutive World Cups in Soccer?", choices: ["Italy", "Brazil", "Argentina", "Spain"], answer: 2),
         QuizQuestion(question: "Which of the following rivers is the longest?", choices: ["Yangtze", "Mississippi", "Congo", "Mekong"], answer: 2),
@@ -43,11 +44,13 @@ struct QuestionProvider {
     func randomNewQuestion() -> QuizQuestion {
         // random number to decide what question to ask
         var randomIndex = GKRandomSource.sharedRandom().nextInt(upperBound: questionBank.count)
+        
         // check to see if we asked this question yet. If so, get another number
         while questionBank[randomIndex].asked == true {
             randomIndex = GKRandomSource.sharedRandom().nextInt(upperBound: questionBank.count)
         }
-        // indicate that this question will be asked now
+        
+        // mark this question so we don't ask it again
         questionBank[randomIndex].asked = true
         
         return questionBank[randomIndex]
