@@ -27,7 +27,7 @@ class QuizQuestion {
 struct QuestionProvider {
     // creating an array of questions
     
-    var questionBank = [QuizQuestion(question: "This was the only US President to serve more than two consecutive terms.", choices: ["George Washington", "Franklin D. Roosevelt", "Woodrow Wilson", "Andrew Jackson"], answer: 2),
+    var questionBank = [QuizQuestion(question: "This was the only US President to serve more than two consecutive terms.", choices: ["George Washington", "Franklin D. Roosevelt", "Woodrow Wilson"], answer: 2),
         QuizQuestion(question: "Which of the following countries has the most residents?", choices: ["Nigeria", "Russia", "Iran", "Vietnam"], answer: 1),
         QuizQuestion(question: "In what year was the United Nations founded?", choices: ["1918", "1919", "1945", "1954"], answer: 3),
         QuizQuestion(question: "The Titanic departed from the United Kingdom, where was it supposed to arrive?", choices: ["Paris", "Washington D.C.", "New York City", "Boston"], answer: 3),
@@ -36,7 +36,7 @@ struct QuestionProvider {
         QuizQuestion(question: "Which country has most recently won consecutive World Cups in Soccer?", choices: ["Italy", "Brazil", "Argentina", "Spain"], answer: 2),
         QuizQuestion(question: "Which of the following rivers is the longest?", choices: ["Yangtze", "Mississippi", "Congo", "Mekong"], answer: 2),
         QuizQuestion(question: "Which of these cities is the oldest?", choices: ["Mexico City", "Cape Town", "San Juan", "Sydney"], answer: 1),
-        QuizQuestion(question: "Which country was the first to allow women to vote in national elections?", choices: ["Poland", "United States", "Sweden", "Senegal"], answer: 1),
+        QuizQuestion(question: "Which country was the first to allow women to vote in national elections?", choices: ["Poland", "United States", "Senegal"], answer: 1),
         QuizQuestion(question: "Which of these countries won the most medals in the 2012 Summer Games?", choices: ["France", "Germany", "Japan", "Great Britain"], answer: 4),
         QuizQuestion(question: "Which platform is better?", choices: ["iOS", "Android"], answer: 1)
         ]

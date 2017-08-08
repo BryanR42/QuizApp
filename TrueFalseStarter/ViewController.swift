@@ -73,6 +73,7 @@ class ViewController: UIViewController {
     
     func displayQuestion() {
     // get a new question
+        scoreLabel.text = "\(correctQuestions) of \(questionsAsked) correct"
         currentQuestion = gameQuestions.randomNewQuestion()
         responseField.isHidden = true
         questionField.text = currentQuestion.question
@@ -162,7 +163,6 @@ class ViewController: UIViewController {
         }
             // make the response visible and update the onscreen score
         responseField.isHidden = false
-        scoreLabel.text = "\(correctQuestions) of \(questionsAsked) correct"
         loadNextRoundWithDelay(seconds: 2)
         }
     }
