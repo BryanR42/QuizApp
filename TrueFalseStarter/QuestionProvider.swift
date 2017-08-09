@@ -38,7 +38,9 @@ struct QuestionProvider {
         QuizQuestion(question: "Which of these cities is the oldest?", choices: ["Mexico City", "Cape Town", "San Juan", "Sydney"], answer: 1),
         QuizQuestion(question: "Which country was the first to allow women to vote in national elections?", choices: ["Poland", "United States", "Senegal"], answer: 1),
         QuizQuestion(question: "Which of these countries won the most medals in the 2012 Summer Games?", choices: ["France", "Germany", "Japan", "Great Britain"], answer: 4),
-        QuizQuestion(question: "Which platform is better?", choices: ["iOS", "Android"], answer: 1)
+        QuizQuestion(question: "Which platform is better?", choices: ["iOS", "Android"], answer: 1),
+        QuizQuestion(question: "You need a Mac to develop for iOS", choices: ["True", "False"], answer: 1)
+        
         ]
     
     func randomNewQuestion() -> QuizQuestion {
