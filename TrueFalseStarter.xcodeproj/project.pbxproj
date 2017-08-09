@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		1F29413D1F360907002B0D54 /* QuestionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F29413C1F360907002B0D54 /* QuestionProvider.swift */; };
 		1F29413F1F378B5A002B0D54 /* ColorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F29413E1F378B5A002B0D54 /* ColorProvider.swift */; };
+		1F3835C61F3B85F30004C321 /* Aww.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F3835C21F3B85F30004C321 /* Aww.wav */; };
+		1F3835C71F3B85F30004C321 /* Cheer.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F3835C31F3B85F30004C321 /* Cheer.wav */; };
+		1F3835C81F3B85F30004C321 /* chime_bell_ding.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1F3835C41F3B85F30004C321 /* chime_bell_ding.wav */; };
+		1F3835C91F3B85F30004C321 /* Wrong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1F3835C51F3B85F30004C321 /* Wrong.mp3 */; };
 		1FC647AC1F3916D600DD60DB /* SoundsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC647AB1F3916D600DD60DB /* SoundsProvider.swift */; };
-		1FC647AE1F39179400DD60DB /* Cheer.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1FC647AD1F39179400DD60DB /* Cheer.wav */; };
-		1FC647B01F3917A100DD60DB /* Wrong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1FC647AF1F3917A100DD60DB /* Wrong.mp3 */; };
-		1FC647B21F3917B500DD60DB /* chime_bell_ding.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1FC647B11F3917B500DD60DB /* chime_bell_ding.wav */; };
-		1FC647B41F39265800DD60DB /* Aww.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1FC647B31F39265700DD60DB /* Aww.wav */; };
 		97093D3C1C913506001275BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97093D3B1C913506001275BC /* AppDelegate.swift */; };
 		97093D3E1C913506001275BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97093D3D1C913506001275BC /* ViewController.swift */; };
 		97093D411C913506001275BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97093D3F1C913506001275BC /* Main.storyboard */; };
@@ -25,11 +25,11 @@
 /* Begin PBXFileReference section */
 		1F29413C1F360907002B0D54 /* QuestionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionProvider.swift; sourceTree = "<group>"; };
 		1F29413E1F378B5A002B0D54 /* ColorProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorProvider.swift; sourceTree = "<group>"; };
+		1F3835C21F3B85F30004C321 /* Aww.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Aww.wav; sourceTree = "<group>"; };
+		1F3835C31F3B85F30004C321 /* Cheer.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Cheer.wav; sourceTree = "<group>"; };
+		1F3835C41F3B85F30004C321 /* chime_bell_ding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = chime_bell_ding.wav; sourceTree = "<group>"; };
+		1F3835C51F3B85F30004C321 /* Wrong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Wrong.mp3; sourceTree = "<group>"; };
 		1FC647AB1F3916D600DD60DB /* SoundsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundsProvider.swift; sourceTree = "<group>"; };
-		1FC647AD1F39179400DD60DB /* Cheer.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Cheer.wav; path = ../../../../../Downloads/Cheer.wav; sourceTree = "<group>"; };
-		1FC647AF1F3917A100DD60DB /* Wrong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Wrong.mp3; path = ../../../../../Downloads/Wrong.mp3; sourceTree = "<group>"; };
-		1FC647B11F3917B500DD60DB /* chime_bell_ding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = chime_bell_ding.wav; path = "../../../../../Downloads/dev_tones free/tones-wav/chime_bell_ding.wav"; sourceTree = "<group>"; };
-		1FC647B31F39265700DD60DB /* Aww.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Aww.wav; path = ../../../../../Downloads/Aww.wav; sourceTree = "<group>"; };
 		97093D381C913506001275BC /* TrueFalseStarter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrueFalseStarter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97093D3B1C913506001275BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97093D3D1C913506001275BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,16 +70,16 @@
 		97093D3A1C913506001275BC /* TrueFalseStarter */ = {
 			isa = PBXGroup;
 			children = (
+				1F3835C21F3B85F30004C321 /* Aww.wav */,
+				1F3835C31F3B85F30004C321 /* Cheer.wav */,
+				1F3835C41F3B85F30004C321 /* chime_bell_ding.wav */,
+				1F3835C51F3B85F30004C321 /* Wrong.mp3 */,
 				97093D3B1C913506001275BC /* AppDelegate.swift */,
 				97093D3D1C913506001275BC /* ViewController.swift */,
 				97093D3F1C913506001275BC /* Main.storyboard */,
 				97093D421C913506001275BC /* Assets.xcassets */,
 				97093D441C913506001275BC /* LaunchScreen.storyboard */,
 				97093D471C913506001275BC /* Info.plist */,
-				1FC647AD1F39179400DD60DB /* Cheer.wav */,
-				1FC647AF1F3917A100DD60DB /* Wrong.mp3 */,
-				1FC647B11F3917B500DD60DB /* chime_bell_ding.wav */,
-				1FC647B31F39265700DD60DB /* Aww.wav */,
 				97093D521C932116001275BC /* GameSound.wav */,
 				1F29413C1F360907002B0D54 /* QuestionProvider.swift */,
 				1F29413E1F378B5A002B0D54 /* ColorProvider.swift */,
@@ -148,13 +148,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FC647B21F3917B500DD60DB /* chime_bell_ding.wav in Resources */,
-				1FC647AE1F39179400DD60DB /* Cheer.wav in Resources */,
-				1FC647B41F39265800DD60DB /* Aww.wav in Resources */,
+				1F3835C81F3B85F30004C321 /* chime_bell_ding.wav in Resources */,
 				97093D531C932116001275BC /* GameSound.wav in Resources */,
-				1FC647B01F3917A100DD60DB /* Wrong.mp3 in Resources */,
 				97093D461C913506001275BC /* LaunchScreen.storyboard in Resources */,
+				1F3835C61F3B85F30004C321 /* Aww.wav in Resources */,
+				1F3835C91F3B85F30004C321 /* Wrong.mp3 in Resources */,
 				97093D431C913506001275BC /* Assets.xcassets in Resources */,
+				1F3835C71F3B85F30004C321 /* Cheer.wav in Resources */,
 				97093D411C913506001275BC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
